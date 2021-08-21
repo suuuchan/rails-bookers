@@ -1,0 +1,19 @@
+<h1>Editing Book</h1>
+<div class="error_explanation">
+    <h3><% if @book.errors.any? %><%= pluralize(@book.errors.count, "error") %> prohibited this teacher from being saved:</h3>
+   <div class = "alert alert-danger">
+     <ul><% @book.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+     <% end %></ul>
+   </div>
+  <% end %>
+ </div> 
+
+<%= form_with model:@book, local: true do |f| %>
+ <div class = "field"><h5>Title</h5><%= f.text_field :title %></div>
+ <div class = "field"><h5>Body</h5><%= f.text_area :body %></div>
+ <div class = "actions"><%= f.submit "Update Book" %></div>
+<% end %> 
+<div class = "action">
+ <%= link_to "Show", book_path(@book) %><text>|</text><%= link_to "Back", books_path %>
+</div>

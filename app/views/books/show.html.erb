@@ -1,0 +1,24 @@
+<p id = "notice">
+    <%= notice %>
+</p>
+
+<h1>Editing Book</h1>
+<div class="error_explanation">
+    <h3><% if @book.errors.any? %><%= pluralize(@book.errors.count, "error") %> prohibited this teacher from being saved:</h3>
+   <div class = "alert alert-danger">
+     <ul><% @book.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+     <% end %></ul>
+   </div>
+  <% end %>
+ </div> 
+<p><strong>Title:</strong><%= @book.title %></p>
+
+<p><strong>Body:</strong><%= @book.body %></p>
+
+<div class = "action">
+    <%= link_to "Edit", edit_book_path(@book) %>
+    <text>|</text>
+    <%= link_to "Back", books_path %>
+</div>
+
